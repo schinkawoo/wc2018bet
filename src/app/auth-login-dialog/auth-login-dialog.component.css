@@ -1,0 +1,13 @@
+.dialog-buttons, .login-error {
+    width: 100%;
+    display: flex;
+}
+
+.dialog-buttons button {
+    flex: 1;
+}
+
+.mat-error {
+    flex: 1;
+    text-align: center;
+}

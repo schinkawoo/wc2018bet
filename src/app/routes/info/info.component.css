@@ -1,0 +1,6 @@
+.document {
+    text-align: center;
+    margin: 20px 80px;
+    flex-grow: 1;
+    width: 80%;
+}

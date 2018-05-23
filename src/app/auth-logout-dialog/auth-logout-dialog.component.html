@@ -1,0 +1,8 @@
+<h1 mat-dialog-title color="primary">Logout</h1>
+<div mat-dialog-content>
+  <p>Are you sure you want to logout?</p>
+</div>
+<div mat-dialog-actions [ngClass]="['dialog-buttons']">
+  <button mat-button (click)="cancel()">NO</button>
+  <button mat-button (click)="confirm()">YES</button>
+</div>

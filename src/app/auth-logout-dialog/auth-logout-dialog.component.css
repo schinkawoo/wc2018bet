@@ -1,0 +1,8 @@
+.dialog-buttons {
+    width: 100%;
+    display: flex;
+}
+
+.dialog-buttons button {
+    flex: 1;
+}
