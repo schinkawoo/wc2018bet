@@ -56,7 +56,6 @@ import { AuthLoginDialogComponent } from './auth-login-dialog/auth-login-dialog.
 import { AuthLogoutDialogComponent } from './auth-logout-dialog/auth-logout-dialog.component';
 import { AuthLoginButtonComponent } from './auth-login-button/auth-login-button.component';
 import { AuthRegisterDialogComponent } from './auth-register-dialog/auth-register-dialog.component';
-import { NotLoggedInComponent } from './routes/not-logged-in/not-logged-in.component';
 import { InfoComponent } from './routes/info/info.component';
 import { MyPageComponent } from './routes/my-page/my-page.component';
 
@@ -73,7 +72,6 @@ import { MyPageComponent } from './routes/my-page/my-page.component';
     AuthLogoutDialogComponent,
     AuthLoginButtonComponent,
     AuthRegisterDialogComponent,
-    NotLoggedInComponent,
     InfoComponent,
     MyPageComponent,
   ],
