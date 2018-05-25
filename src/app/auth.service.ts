@@ -9,7 +9,7 @@ const registeredUsers = [
   {
     name: 'Klark Kent',
     email: 'klark@gmail.com',
-    passwordHash: 'u:klark@gmail.com;p:criptone'
+    passwordHash: 'u:klark@gmail.com;p:cripton'
   }
 ];
 
@@ -19,6 +19,7 @@ const registeredUsers = [
 export class AuthService {
 
   loggedIn = false;
+  loggedInUser: string;
 
   constructor() {
     this.loggedIn = !!localStorage.getItem('authKey');
@@ -33,9 +34,11 @@ export class AuthService {
         if (foundUser) {
           localStorage.setItem('authKey', `${foundUser.passwordHash}t:unlimited`);
           this.loggedIn = true;
+          this.loggedInUser = email;
           resolve();
         } else {
           this.loggedIn = false;
+          this.loggedInUser = null;
           resolve('Bad login information');
         }
       }, 800);
@@ -47,12 +50,19 @@ export class AuthService {
       setTimeout(() => {
         localStorage.removeItem('authKey');
         this.loggedIn = false;
+        this.loggedInUser = null;
         resolve(true);
       }, 800);
     });
   }
 
   isAuthenticated() {
+    // Should actually be handled by server using a token;
     return this.loggedIn;
+  }
+
+  isAdmin() {
+    // Should actually be handled by server using a token;
+    return this.loggedInUser === 'klark@gmail.com';
   }
 }

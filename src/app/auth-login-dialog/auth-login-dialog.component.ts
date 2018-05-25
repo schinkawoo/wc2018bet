@@ -35,9 +35,11 @@ export class AuthLoginDialogComponent implements OnInit {
   }
 
   register(): void {
-    this.dialogRef.close({
-      register: true
-    });
+    if (this.email.valid || this.password.valid) {
+      this.dialogRef.close({
+        register: true
+      });
+    }
   }
 
   ngOnInit() {

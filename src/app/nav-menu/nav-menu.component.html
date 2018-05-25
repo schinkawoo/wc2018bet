@@ -1,6 +1,6 @@
 <mat-list>
   <mat-list-item>
-    <button mat-button routerLink="/home" routerLinkActive="active">
+    <button mat-button routerLink="/home" routerLinkActive="active" [disabled]="!authService.isAuthenticated()">
       <mat-icon>home</mat-icon>
       <mat-label>
         Home
@@ -9,7 +9,7 @@
   </mat-list-item>
   <mat-divider></mat-divider>
   <mat-list-item>
-    <button mat-button routerLink="/groups" routerLinkActive="active">
+    <button mat-button routerLink="/groups" routerLinkActive="active" [disabled]="!authService.isAuthenticated()">
       <mat-icon>format_list_numbered</mat-icon>
       <mat-label>
         Groups
@@ -18,7 +18,7 @@
   </mat-list-item>
   <mat-divider></mat-divider>
   <mat-list-item>
-    <button mat-button routerLink="/knockout" routerLinkActive="active">
+    <button mat-button routerLink="/knockout" routerLinkActive="active" [disabled]="!authService.isAuthenticated()">
       <mat-icon>device_hub</mat-icon>
       <mat-label>
         Knockout
@@ -27,7 +27,7 @@
   </mat-list-item>
   <mat-divider></mat-divider>
   <mat-list-item>
-    <button mat-button routerLink="/standings" routerLinkActive="active">
+    <button mat-button routerLink="/standings" routerLinkActive="active" [disabled]="!authService.isAuthenticated()">
       <mat-icon>poll</mat-icon>
       <mat-label>
         Standings
@@ -35,10 +35,18 @@
     </button>
   </mat-list-item>
   <mat-list-item>
-    <button mat-button routerLink="/my-page" routerLinkActive="active">
+    <button mat-button routerLink="/my-page" routerLinkActive="active" [disabled]="!authService.isAuthenticated()">
       <mat-icon>person</mat-icon>
       <mat-label>
         My Page
+      </mat-label>
+    </button>
+  </mat-list-item>
+  <mat-list-item *ngIf="authService.isAdmin()">
+    <button mat-button routerLink="/setup-page" routerLinkActive="active" [disabled]="!authService.isAuthenticated()">
+      <mat-icon>person</mat-icon>
+      <mat-label>
+        Setup Page
       </mat-label>
     </button>
   </mat-list-item>

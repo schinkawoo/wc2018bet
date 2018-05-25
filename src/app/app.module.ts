@@ -58,6 +58,7 @@ import { AuthLoginButtonComponent } from './auth-login-button/auth-login-button.
 import { AuthRegisterDialogComponent } from './auth-register-dialog/auth-register-dialog.component';
 import { InfoComponent } from './routes/info/info.component';
 import { MyPageComponent } from './routes/my-page/my-page.component';
+import { SetupPageComponent } from './routes/setup-page/setup-page.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { MyPageComponent } from './routes/my-page/my-page.component';
     AuthRegisterDialogComponent,
     InfoComponent,
     MyPageComponent,
+    SetupPageComponent,
   ],
   entryComponents: [AuthLoginDialogComponent, AuthLogoutDialogComponent, AuthRegisterDialogComponent],
   imports: [
