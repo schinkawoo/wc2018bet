@@ -23,6 +23,7 @@ export class AuthService {
 
   constructor() {
     this.loggedIn = !!localStorage.getItem('authKey');
+    this.loggedInUser = localStorage.getItem('user');
   }
 
   login(email: string, password: string) {
@@ -33,6 +34,7 @@ export class AuthService {
         });
         if (foundUser) {
           localStorage.setItem('authKey', `${foundUser.passwordHash}t:unlimited`);
+          localStorage.setItem('user', email);
           this.loggedIn = true;
           this.loggedInUser = email;
           resolve();
@@ -49,6 +51,7 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         localStorage.removeItem('authKey');
+        localStorage.removeItem('user');
         this.loggedIn = false;
         this.loggedInUser = null;
         resolve(true);

@@ -44,7 +44,7 @@ const routes: Routes = [
   {
     path: 'setup-page',
     component: SetupPageComponent,
-    data: { title: 'Setup Page' },
+    data: { title: 'Setup' },
     canActivate: [AuthGuardService, AuthAdminGuardService]
   },
   {

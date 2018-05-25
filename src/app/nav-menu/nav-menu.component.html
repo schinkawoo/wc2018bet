@@ -34,6 +34,7 @@
       </mat-label>
     </button>
   </mat-list-item>
+  <mat-divider></mat-divider>
   <mat-list-item>
     <button mat-button routerLink="/my-page" routerLinkActive="active" [disabled]="!authService.isAuthenticated()">
       <mat-icon>person</mat-icon>
@@ -42,9 +43,10 @@
       </mat-label>
     </button>
   </mat-list-item>
+  <mat-divider></mat-divider>
   <mat-list-item *ngIf="authService.isAdmin()">
     <button mat-button routerLink="/setup-page" routerLinkActive="active" [disabled]="!authService.isAuthenticated()">
-      <mat-icon>person</mat-icon>
+      <mat-icon>build</mat-icon>
       <mat-label>
         Setup Page
       </mat-label>
