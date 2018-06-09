@@ -1,5 +1,6 @@
 .app-container {
     height: 100vh;
+    min-width: 360px;
     display: flex;
     flex-direction: column;
 }
@@ -7,14 +8,6 @@
 .content {
     padding-left: 250px;
     padding-right: 0;
-    transition: padding-left 225ms cubic-bezier(.4,0,.2,1);
-    transition: padding-right 225ms cubic-bezier(.4,0,.2,1);
-    height: 100%;
-}
-
-.content.no-menu {
-    padding-left: 125px;
-    padding-right: 125px;
     transition: padding-left 225ms cubic-bezier(.4,0,.2,1);
     transition: padding-right 225ms cubic-bezier(.4,0,.2,1);
     height: 100%;
@@ -28,3 +21,11 @@
     flex: 1;
 }
 
+@media (max-width: 1200px) {
+  .content {
+      padding: 0;
+  }
+  .content.no-menu {
+    padding: 0;
+  }
+}

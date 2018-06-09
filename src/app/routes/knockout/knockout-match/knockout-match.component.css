@@ -1,0 +1,64 @@
+.match {
+  border: 1px solid #3f50b512;
+}
+
+.day {
+  text-align: center;
+  background-color: #3f50b512;
+  width: 100%;
+}
+
+.result {
+  text-align: center;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.result .time {
+  color: grey;
+  max-width: 80px;
+}
+
+.teams {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+}
+
+.team-logo {
+  flex: 1;
+  margin: 0 5px;
+  width: 50%;
+}
+
+.name {
+  font-weight: bold;
+  text-align: center;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .team.away {
+    flex-direction: column;
+  }
+
+  .team.home {
+    flex-direction: column-reverse
+  }
+
+  .team-logo {
+    width: 85%;
+  }
+
+  .team .name {
+    font-weight: normal;
+  }
+}

@@ -1,3 +1,32 @@
-<p>
-  knockout works!
-</p>
+<div class="mat-elevation-z8 matches-container" *ngIf="matches.length > 0">
+<div class="rounds">
+    <div class="round title">Best of 16</div>
+    <div class="round title">Quaterfinals</div>
+    <div class="round title">Semifinals</div>
+    <div class="round title">Finals</div>
+</div>  
+<div class="rounds">
+    <div class="round eight">
+      <app-knockout-match *ngFor="let match of get16Matches()" [data]="match"></app-knockout-match>
+    </div>
+    <div class="round quater">
+        <ng-container *ngFor="let match of getQuaterFinalsMatches()">
+            <div class="placeholder"></div>
+            <app-knockout-match [data]="match"></app-knockout-match>
+        </ng-container>
+        <div class="placeholder"></div>
+    </div>
+    <div class="round semi">
+        <ng-container *ngFor="let match of getSemiFinalsMatches()">
+            <div class="placeholder"></div>
+            <app-knockout-match [data]="match"></app-knockout-match>
+        </ng-container>
+        <div class="placeholder"></div>
+    </div>
+    <div class="round final">
+        <div class="placeholder"></div>
+        <app-knockout-match [data]="getFinalsMatches()[0]"class="finals"></app-knockout-match>
+        <app-knockout-match [data]="getFinalsMatches()[1]" class="for-third-place"></app-knockout-match>
+    </div>
+  </div>
+</div>

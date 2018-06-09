@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TitleService } from '../title.service';
+import { ScreenService } from '../screen.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,7 +11,7 @@ import { TitleService } from '../title.service';
 export class ToolbarComponent implements OnInit {
   @Input() title = 'Webtec Betting';
   @Output() toggleMenu: EventEmitter<boolean> = new EventEmitter();
-  constructor(private route: ActivatedRoute, private titleService: TitleService) { }
+  constructor(private route: ActivatedRoute, private titleService: TitleService, private screen: ScreenService) { }
 
   ngOnInit() {
     this.titleService.titleChanged.subscribe(title => {

@@ -1,0 +1,19 @@
+<div class="match">
+  <div class="day">
+    {{data.date | date: 'd. MMM'}}
+  </div>
+  <div class="teams">
+    <div class="team home">
+      <div class="name">{{getTeamName(data.team_home)}}</div>
+      <img class="team-logo" [src]="imageUrl(data.team_home)" />
+    </div>
+    <div class="divider">-</div>
+    <div class="team away">
+      <img class="team-logo" [src]="imageUrl(data.team_home)" />
+      <div class="name">{{getTeamName(data.team_away)}}</div>
+    </div>
+  </div>
+  <div class="result">
+    <div class="time">{{data.date | date: 'HH:mm'}}</div>
+  </div>
+</div>

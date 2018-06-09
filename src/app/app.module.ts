@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import {
   MatAutocompleteModule,
@@ -60,6 +62,10 @@ import { InfoComponent } from './routes/info/info.component';
 import { MyPageComponent } from './routes/my-page/my-page.component';
 import { SetupPageComponent } from './routes/setup-page/setup-page.component';
 
+import { matchReducer } from './match-reducer';
+import { MatchesEffects } from './match-effects';
+import { KnockoutMatchComponent } from './routes/knockout/knockout-match/knockout-match.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,13 +82,16 @@ import { SetupPageComponent } from './routes/setup-page/setup-page.component';
     InfoComponent,
     MyPageComponent,
     SetupPageComponent,
+    KnockoutMatchComponent,
   ],
   entryComponents: [AuthLoginDialogComponent, AuthLogoutDialogComponent, AuthRegisterDialogComponent],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     BrowserModule,
     BrowserAnimationsModule,
+    EffectsModule.forRoot([MatchesEffects]),
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -121,7 +130,7 @@ import { SetupPageComponent } from './routes/setup-page/setup-page.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    AppRoutingModule
+    StoreModule.forRoot({ matches: matchReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

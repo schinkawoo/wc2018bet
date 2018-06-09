@@ -1,16 +1,16 @@
 <div class="app-container">
-      <app-toolbar [title]="title" (toggleMenu)="this.toggleDrawer()"></app-toolbar>      
-      <mat-drawer-container class="example-container" hasBackdrop="false">
-        <mat-drawer #drawer mode="over" disableClose="true" autoFocus="false" [opened]="isMenuOpen()">
-          <div class="drawer-content">
-            <app-nav-menu></app-nav-menu>
-          </div>
-        </mat-drawer>
-      
-        <mat-drawer-content>
-          <div class="content mat-typography" [ngClass]="isMenuOpen() ? [''] : ['no-menu']">
-              <router-outlet></router-outlet>
-          </div>
-        </mat-drawer-content>
-      </mat-drawer-container>
+  <app-toolbar [title]="title" (toggleMenu)="this.toggleDrawer()"></app-toolbar>      
+  <mat-drawer-container class="example-container" hasBackdrop="false">
+    <mat-drawer #drawer mode="over" autoFocus="false" [opened]="isMenuOpen()">
+      <div class="drawer-content">
+        <app-nav-menu></app-nav-menu>
+      </div>
+    </mat-drawer>
+  
+    <mat-drawer-content>
+      <div class="content mat-typography" [ngClass]="isMenuOpen() ? [''] : ['no-menu']">
+          <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>

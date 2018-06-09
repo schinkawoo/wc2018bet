@@ -1,26 +1,43 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatDrawer } from '@angular/material';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { ScreenService } from './screen.service';
+import { DrawerService } from './drawer.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Webtec Betting';
   @ViewChild('drawer') drawer: MatDrawer;
 
-  toggleDrawer() {
-    if (localStorage.getItem('menuOpen') === 'false') {
-      localStorage.setItem('menuOpen', 'true');
-    } else {
-      localStorage.setItem('menuOpen', 'false');
-    }
+  constructor(public screen: ScreenService, private drawerService: DrawerService) {
+  }
 
-    this.drawer.toggle();
+  ngOnInit() {
+    this.drawerService.toggleDrawer.subscribe((open) => {
+      if (!this.screen.large && !open) {
+        this.drawer.close();
+      } else if (open) {
+        this.drawer.open();
+      }
+    });
+  }
+
+  toggleDrawer() {
+    if (!this.screen.large) {
+      this.drawer.toggle();
+    }
   }
 
   isMenuOpen() {
-    return localStorage.getItem('menuOpen') === 'false' ? false : true;
+    if (this.screen.large) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

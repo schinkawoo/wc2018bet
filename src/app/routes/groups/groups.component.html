@@ -1,3 +1,20 @@
-<p>
-  groups works!
-</p>
+<div class="mat-elevation-z8 matches-container" *ngIf="matches.length > 0">
+  <div *ngFor="let match of matches; index as i" class="match-container">
+    <div class="day" *ngIf="shouldDisplayDay(i)">
+        {{match.date | date: 'longDate'}}
+    </div>
+    <div class="match">
+        <div class="team-home">
+            <img [src]="imageUrl(match.team_home)" class="team-logo" />
+            <div>{{match.team_home.name}}</div>
+          </div>
+          <div class="result">
+            <div class="time">{{match.date | date: 'HH:mm'}}</div>
+          </div>
+          <div class="team-away">
+            <img [src]="imageUrl(match.team_away)" class="team-logo" />
+            <div>{{match.team_away.name}}</div>
+          </div>
+    </div>
+  </div>
+</div>
