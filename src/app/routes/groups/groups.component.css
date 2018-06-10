@@ -1,3 +1,28 @@
+.groups {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.group {
+  flex: 1;
+  padding: 20px 20px 50px;
+}
+
+.group-title {
+  padding: 10px 10px 15px 20px;
+  font-size: 20px;
+}
+
+@media (max-width: 650px) {
+  .group {
+    padding: 20px 0;
+  }
+
+  .group-title {
+    text-align: center;
+  }
+}
+
 .match-container {
   border-bottom: 1px solid rgba(0, 0, 0, .12);
   position: relative;
@@ -45,6 +70,26 @@
 @media (max-width: 375px) {
   .result {
     padding: 0;
-  }
-  
+  }  
+}
+
+table {
+  width: 100%;
+}
+
+td, th {
+  width: 10%;
+}
+
+td.mat-column-country, th.mat-column-country {
+  width: 20%;
+  min-width: 160px;
+  position: relative;
+}
+
+td.mat-column-country > span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 10px;
 }
